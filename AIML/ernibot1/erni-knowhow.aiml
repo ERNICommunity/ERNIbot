@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+  <category>
+    <pattern># ERNI SERVICES</pattern>
+    <template>The ERNI services are: PJM; REQ, SWE, TES, PI</template>
+  </category>
+  <category>
+    <pattern># PRIORITIZATION</pattern>
+    <template>Prioritization is vital if limited resources are to be utilised both efficiently and to the greatest possible effect</template>
+  </category>
+  <category>
+    <pattern># REQUIREMENTS ENGINEERING</pattern>
+    <template>The ERNI Service Requirements Engineering consists of connected Service Patterns (SP). The SP Requirements Startup creates the foundation for the requirements engineering process and the other two SPs. The task of the SP Requirements Development is to collect the requirements and take care of stakeholders. The SP Requirements Management deals with the administration of the collected requirements.</template>
+  </category>
+  <category>
+    <pattern># PROJECT MANAGEMENT</pattern>
+    <template>The project management service at ERNI is based on the PMI standard methodology, the PMBOK (Project Management Body of Knowledge). The aimfor the structure duplication is to provide thorough orientation and logic for project management professionals. In contradiction, the content of the structure - service items, patterns and areas - is entirely driven by the ERNI way of doing project management. Hence you will find no common methodologies but all tailored content and templates based on ERNI best-practice and knowledge experience.</template>
+  </category>
+  <category>
+    <pattern># SOFTWARE ENGINEERING</pattern>
+    <template>The ERNI Service Software Engineering supports companies in the professional development of software. It includes services that cover the core areas of the actual software design and implementation as well as all activities related to the architecture of IT systems and products.</template>
+  </category>
+  <category>
+    <pattern># CONSULTING</pattern>
+    <template>ERNI Consulting advises businesses from all industries how to deploy information technologies efficiently or use them for innovation of their products or services.</template>
+  </category>
+  <category>
+    <pattern># RETO ZUMBUHL</pattern>
+    <template>This guy is the absolute master of consulting. Have a look at his service pattern Coverage Analysis.</template>
+  </category>
+  <category>
+    <pattern># GUS LONG</pattern>
+    <template>This guy is almost as intelligent as Donald Trump.</template>
+  </category>
+  <category>
+    <pattern>WHAT IS ERNI *</pattern>
+    <template>ERNI is an international consulting company highly specialized in Software engineering to enable and deliver innovation in collaboration and technology.</template>
+  </category>
+  <category>
+    <pattern>HOW MANY EMPLOYEES *</pattern>
+    <template>With more than 500 employees, ERNI offers its clients a powerful international network for innovation and competence.</template>
+  </category>
+  <category>
+    <pattern>WHERE IS THE HACK *</pattern>
+    <template>The hack and hike takes place every year in Wissifluh, Switzerland.</template>
+  </category>
+  <category>
+    <pattern># BEER</pattern>
+    <template>Beer is always part of Hack and Hike.</template>
+  </category>
+
+<category>
+    <pattern>I AM INTERESTED IN *</pattern>
+    <template>Oh ERNI is really interested in people who know about <set name="topic"><star/></set></template>
+</category>
+
+
+
+</aiml>
