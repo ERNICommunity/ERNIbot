@@ -13,8 +13,41 @@
     tools:context="ernibot.erni.ch.ernibot.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <RelativeLayout
+        android:id="@+id/input_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentBottom="true" >
+
+        <Button
+            android:id="@+id/send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/ic_button_microphone"
+            android:minHeight="45dip"
+            android:minWidth="45dp" />
+
+        <EditText
+            android:id="@+id/message_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/send_button" >
+
+            <requestFocus />
+        </EditText>
+
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/chat_table"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/input_layout"
+        android:layout_alignParentLeft="true" >
+
+    </ListView>
 </RelativeLayout>

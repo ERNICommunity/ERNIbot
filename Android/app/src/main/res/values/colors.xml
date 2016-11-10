@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="dark">#606060</color>
+    <color name="orange">#FF6619</color>
+    <color name="blue">#004466</color>
+    <color name="chat">#DDDDDD</color>
+
 </resources>

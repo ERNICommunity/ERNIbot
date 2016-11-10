@@ -1,0 +1,2345 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="Author" content="Thomas Ringate">
+<meta name="Description" content="Reference Manual for the AIML tags">
+<meta name="KeyWords" content="alice, aiml, artificial">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>ALICE AIML Reference Manual</title>
+</head>
+
+<body alink="#FF0000" bgcolor="#FFFFFF" link="#0000EE" text="#000000" vlink="#551A8B">
+
+<h2 align="center"><font color="#00008B" size="6">AIML Reference
+Manual</font></h2>
+
+<p align="center"><font color="#FF6666" size="6">This document is
+a "work in progress"</font> <br>
+<font color="#330033">Last&nbsp; update:&nbsp; September 01, 2001</font>
+</p>
+
+<hr size="5">
+
+<p><br>
+Document by: Thomas Ringate <br>
+Copyright © 2001 <br>
+Contributing Authors: Dr. Richard S. Wallace; Anthony Taylor: Jon
+Baer </p>
+
+<hr>
+
+<p align="center"><a name="reference"></a><font size="7" face="Helvetica,Arial"><strong>AIML TAG REFERENCE TABLE</strong></font></p>
+<div align="center"><center>
+
+<table x:str="" style="border-collapse:
+    &lt;tr&gt;
+        &lt;td align=" center"="" class="xl26" border="2" bordercolor="#000000" cellpadding="0" cellspacing="0" height="22">
+    <tbody><tr>
+        <td><font size="2"><strong>AIML 0.9</strong></font></td>
+        <td class="xl27" align="center"><font size="2"><strong>AIML
+        1.0</strong></font></td>
+        <td class="xl27" align="center"><font size="2"><strong>Tag
+        Type</strong></font></td>
+        <td class="xl27" align="center"><font size="2"><strong>Note</strong></font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;alice&gt; " height="18"><a href="#alice"><font size="2">&lt;alice&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;aiml&gt; "><a href="#aiml"><font size="2">&lt;aiml&gt; </font></a></td>
+        <td class="xl29"><font size="2">AIML block delimeter</font></td>
+        <td class="xl29"><font size="2">[Closing tags not shown]</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;name/&gt; " height="18"><font size="2">&lt;name/&gt; </font></td>
+        <td class="xl29" x:str=" &lt;bot_name/&gt; "><font size="2">&lt;bot name="name"/&gt; </font></td>
+        <td class="xl29"><font size="2">Built-in bot parameter</font></td>
+        <td class="xl29"><font size="2">may appear in pattern</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><font size="2">(see Note 2.)</font></td>
+        <td class="xl29"><font size="2">&lt;bot
+        name="XXX"/&gt;</font></td>
+        <td class="xl29"><font size="2">Custom bot parameter</font></td>
+        <td class="xl29"><font size="2">&lt;srai&gt;BOT
+        XXX&lt;/srai&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;justbeforethat/&gt; " height="18"><a href="#justbeforethat"><font size="2">&lt;justbeforethat/&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;botsaid index=&quot;2,1&quot;/&gt; "><a href="#that%20index"><font size="2">&lt;that
+        index="2,1"/&gt; </font></a></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">See Note 4.</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;that/&gt; " height="18"><a href="#that/"><font size="2">&lt;that/&gt;
+        </font></a></td>
+        <td class="xl29"><a href="#that%20index"><font size="2">&lt;that
+        index="nx,ny"/&gt;</font></a></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">default "that"</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;that&gt; " height="18"><a href="#that"><font size="2">&lt;that&gt;
+        </font></a></td>
+        <td class="xl29"><a href="#that"><font size="2">&lt;that&gt;</font></a></td>
+        <td class="xl29"><font size="2">AIML that pattern</font></td>
+        <td class="xl29"><font size="2">contains AIML pattern</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;category&gt; " height="18"><a href="#category"><font size="2">&lt;category&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;category&gt; "><a href="#category"><font size="2">&lt;category&gt; </font></a></td>
+        <td class="xl29"><font size="2">AIML category</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;justthat/&gt; " height="18"><a href="#justthat"><font size="2">&lt;justthat/&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;clientsaid index=&quot;1&quot;/&gt; "><a href="#input"><font size="2">&lt;input
+        index="2"/&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;beforethat/&gt; " height="18"><a href="#beforethat"><font size="2">&lt;beforethat/&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;clientsaid index=&quot;2&quot;/&gt; "><a href="#input"><font size="2">&lt;input
+        index="3"/&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;condition name=&quot;X&quot; value=&quot;Y&quot;&gt; " height="18"><a href="#condition"><font size="2">&lt;condition
+        name="X" value="Y"&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29" x:str=" &lt;condition name=&quot;X&quot; value=&quot;Y&quot;&gt; "><a href="#condition"><font size="2">&lt;condition
+        name="X" value="Y"&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Conditional branch</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;condition&gt; " height="18"><a href="#condition"><font size="2">&lt;condition&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;condition&gt; "><a href="#condition"><font size="2">&lt;condition&gt; </font></a></td>
+        <td class="xl29"><font size="2">Conditional branch</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#gender"><font size="2">&lt;gender&gt;</font></a></td>
+        <td class="xl29"><a href="#gender"><font size="2">&lt;gender&gt;</font></a></td>
+        <td class="xl29"><font size="2">Gender substitution</font></td>
+        <td class="xl29"><font size="2">Exchange "he"
+        and "she"</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;date/&gt; " height="18"><font size="2">&lt;date/&gt; </font></td>
+        <td class="xl29" x:str=" &lt;get_date/&gt; "><font size="2">&lt;date/&gt; </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">date and time</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;get_ip/&gt; " height="18"><font size="2">&lt;get_ip/&gt; </font></td>
+        <td class="xl29" x:str=" &lt;get_ip/&gt; "><font size="2">&lt;id/&gt;</font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">default
+        "localhost"</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;getname/&gt; " height="18"><font size="2">&lt;getname/&gt;
+        </font></td>
+        <td class="xl29" x:str=" &lt;get_name/&gt; "><a href="#get%201.0"><font size="2">&lt;get
+        name="xxx"/&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">default
+        "X-person"</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;getsize/&gt; " height="18"><font size="2">&lt;getsize/&gt;
+        </font></td>
+        <td class="xl29" x:str=" &lt;get_size/&gt; "><font size="2">&lt;size/&gt; </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2"># of categories loaded</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;star/&gt; " height="18"><a href="#star"><font size="2">&lt;star/&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;get_star index=&quot;X&quot;/&gt; "><a href="#star%201.0"><font size="2">&lt;star
+        index="n"/&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">binding of *</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#thatstar"><font size="2">&lt;thatstar/&gt;</font></a></td>
+        <td class="xl29"><a href="#thatstar%201.0"><font size="2">&lt;thatstar
+        index="n"/&gt;</font></a></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">binding of * in that</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;gettopic/&gt; " height="18"><font size="2">&lt;gettopic/&gt;
+        </font></td>
+        <td class="xl29" x:str=" &lt;get_topic/&gt; "><font size="2">&lt;get name="topic"/&gt;</font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">default "you"</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#topicstar"><font size="2">&lt;topicstar/&gt;</font></a></td>
+        <td class="xl29"><a href="#topicstar%201.0"><font size="2">&lt;topicstar
+        index="n"/&gt;</font></a></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">binding of * in topic</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;getversion/&gt; " height="18"><font size="2">&lt;getversion/&gt;
+        </font></td>
+        <td class="xl29" x:str=" &lt;get_version/&gt; "><font size="2">&lt;version/&gt;</font></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">AIML program version</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#get"><font size="2">&lt;get_xxx/&gt;</font></a></td>
+        <td class="xl29"><a href="#get%201.0"><font size="2">&lt;get
+        name="xxx"/&gt;</font></a></td>
+        <td class="xl29"><font size="2">Custom predicate</font></td>
+        <td class="xl29"><font size="2">Botmaster defined XXX,
+        default (3)</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;gossip&gt; " height="18"><a href="#gossip"><font size="2">&lt;gossip&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;gossip filename=&quot;X&quot;/&gt; "><a href="#gossip"><font size="2">&lt;gossip
+        src="X"/&gt;</font></a><font size="2"> </font></td>
+        <td class="xl29"><font size="2">Append to file</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;load filename=&quot;X&quot;/&gt; " height="18"><a href="#load"><font size="2">&lt;load
+        filename="X"/&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;learn filename=&quot;X&quot;/&gt; "><a href="#learn"><font size="2">&lt;learn&gt;X&lt;/learn&gt;</font></a></td>
+        <td class="xl29"><font size="2">AIML loading</font></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;li name=&quot;X&quot; value=&quot;Y&quot;&gt; " height="18"><a href="#list"><font size="2">&lt;li name="X"
+        value="Y"&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;li name=&quot;X&quot; value=&quot;Y&quot;&gt; "><a href="#list"><font size="2">&lt;li name="X"
+        value="Y"&gt; </font></a></td>
+        <td class="xl29"><font size="2">Conditional branch item</font></td>
+        <td class="xl29"><font size="2">used by &lt;condition&gt;</font></td>
+    </tr>
+    <tr>
+        <td><font size="2">&lt;li value="Y"&gt;</font></td>
+        <td><font size="2">&lt;li value="Y"&gt;</font></td>
+        <td><font size="2">Conditional branch item</font></td>
+        <td><font size="2">used by &lt;condition
+        name="X"&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;li&gt; " height="18"><a href="#list"><font size="2">&lt;li&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;li&gt; "><a href="#list"><font size="2">&lt;li&gt; </font></a></td>
+        <td class="xl29"><font size="2">General list item</font></td>
+        <td class="xl29"><font size="2">used by &lt;random&gt;,
+        &lt;condition&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;pattern&gt; " height="18"><a href="#pattern"><font size="2">&lt;pattern&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;pattern&gt; "><a href="#pattern"><font size="2">&lt;pattern&gt; </font></a></td>
+        <td class="xl29"><font size="2">AIML Pattern</font></td>
+        <td class="xl29"><font size="2">contains AIML pattern</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;person/&gt; " height="18"><a href="#person"><font size="2">&lt;person/&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;person/&gt; "><a href="#person"><font size="2">&lt;person/&gt; </font></a></td>
+        <td class="xl29"><font size="2">Prounoun transform macro</font></td>
+        <td class="xl29"><font size="2">&lt;person&gt;&lt;get_star/&gt;&lt;/person&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;person2&gt; " height="18"><a href="#person2"><font size="2">&lt;person2&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;person2&gt; "><a href="#person2"><font size="2">&lt;person2&gt; </font></a></td>
+        <td class="xl29"><font size="2">Prounoun transform</font></td>
+        <td class="xl29"><font size="2">swap 1st &amp; 2nd person</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;person2/&gt; " height="18"><a href="#person2"><font size="2">&lt;person2/&gt;</font></a></td>
+        <td class="xl29" x:str=" &lt;person2/&gt; "><a href="#person2"><font size="2">&lt;person2/&gt; </font></a></td>
+        <td class="xl29"><font size="2">Prounoun transform macro</font></td>
+        <td class="xl29"><font size="2">&lt;person2&gt;&lt;get_star/&gt;&lt;/person2&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;person&gt; " height="18"><a href="#person"><font size="2">&lt;person&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;person&gt; "><a href="#person"><font size="2">&lt;person&gt; </font></a></td>
+        <td class="xl29"><font size="2">Prounoun transform</font></td>
+        <td class="xl29"><font size="2">swap 1st &amp; 3rd person</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;random&gt; " height="18"><a href="#random"><font size="2">&lt;random&gt;</font></a></td>
+        <td class="xl29" x:str=" &lt;random&gt; "><a href="#random"><font size="2">&lt;random&gt; </font></a></td>
+        <td class="xl29"><font size="2">Random selection</font></td>
+        <td class="xl29"><font size="2">Random uniform selection</font></td>
+    </tr>
+    <tr>
+        <td><font size="2">&lt;setname&gt;</font></td>
+        <td><a href="#set"><font size="2">&lt;set
+        name="name"&gt;</font></a></td>
+        <td><font size="2">Built-in predicate</font></td>
+        <td><font size="2">returns contents</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;settopic&gt; " height="18"><a href="#topic"><font size="2">&lt;settopic&gt;</font></a></td>
+        <td class="xl29" x:str=" &lt;set_topic&gt; "><a href="#set"><font size="2">&lt;set
+        name="topic"&gt; </font></a></td>
+        <td class="xl29"><font size="2">Built-in predicate</font></td>
+        <td class="xl29"><font size="2">returns contents</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#set"><font size="2">&lt;set_XXX&gt;</font></a></td>
+        <td class="xl29"><a href="#set"><font size="2">&lt;set
+        name="XXX"&gt;</font></a></td>
+        <td class="xl29"><font size="2">Custom predicate</font></td>
+        <td class="xl29"><font size="2">See Note 3.</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;sr/&gt; " height="18"><a href="#srai"><font size="2">&lt;sr/&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;sr/&gt; "><a href="#srai"><font size="2">&lt;sr/&gt; </font></a></td>
+        <td class="xl29"><font size="2">Recursion macro</font></td>
+        <td class="xl29"><font size="2">&lt;srai&gt;&lt;get_star/&gt;&lt;/srai&gt;</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;srai&gt; " height="18"><a href="#srai"><font size="2">&lt;srai&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;srai&gt; "><a href="#srai"><font size="2">&lt;srai&gt; </font></a></td>
+        <td class="xl29"><font size="2">Recursion</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" height="18"><a href="#system"><font size="2">&lt;system&gt;</font></a></td>
+        <td class="xl29"><a href="#system"><font size="2">&lt;system&gt;</font></a></td>
+        <td class="xl29"><font size="2">Execute OS shell</font></td>
+        <td class="xl29"><font size="2">platform-dependent</font></td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;template&gt; " height="18"><a href="#template"><font size="2">&lt;template&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;template&gt; "><a href="#template"><font size="2">&lt;template&gt; </font></a></td>
+        <td class="xl29"><font size="2">AIML template</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;think&gt; " height="18"><a href="#think"><font size="2">&lt;think&gt;
+        </font></a></td>
+        <td class="xl29" x:str=" &lt;think&gt; "><a href="#think"><font size="2">&lt;think&gt; </font></a></td>
+        <td class="xl29"><font size="2">Nullify output</font></td>
+        <td class="xl29">&nbsp;</td>
+    </tr>
+    <tr>
+        <td class="xl28" style="height:13.5pt" x:str="&lt;topic name=&quot;X&quot;&gt; " height="18"><a href="#topic"><font size="2">&lt;topic
+        name="X"&gt; </font></a></td>
+        <td class="xl29" x:str=" &lt;topic name=&quot;X&quot;&gt; "><a href="#topic"><font size="2">&lt;topic
+        name="X"&gt; </font></a></td>
+        <td class="xl29"><font size="2">AIML topic group</font></td>
+        <td class="xl29"><font size="2">X is AIML pattern</font></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#uppercase"><font size="2">&lt;uppercase&gt;</font></a></td>
+        <td><font size="2">Text manipulation</font></td>
+        <td><font size="2">convert all text to Uppercase</font></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#lowercase"><font size="2">&lt;lowercase&gt;</font></a></td>
+        <td><font size="2">Text manipulation</font></td>
+        <td><font size="2">convert all text to Lowercase</font></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#sentence"><font size="2">&lt;sentence&gt;</font></a></td>
+        <td><font size="2">Text manipulation</font></td>
+        <td><font size="2">capitalize the first word</font></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#formal"><font size="2">&lt;formal&gt;</font></a></td>
+        <td><font size="2">Text manipulation</font></td>
+        <td><font size="2">capitalize every word</font></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#if"><font size="2">&lt;if
+        name="X" value=Y"&gt;</font></a></td>
+        <td><font size="2">Conditional branch</font></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><font size="2">&lt;else&gt;</font></td>
+        <td><font size="2">Conditional branch</font></td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><a href="#script"><font size="2">&lt;javascript&gt;</font></a></td>
+        <td><font size="2">AIMLScript </font></td>
+        <td><font size="2">Javascript</font></td>
+    </tr>
+</tbody></table>
+</center></div>
+
+<hr>
+
+<p><a name="aiml"><span style="background: yellow"></span></a> </p>
+
+<h4><font color="#330033">&lt;aiml version="<i>xxx</i>"&gt;
+&lt;/aiml&gt;</font></h4>
+
+<p><font size="2"><b>Supported in versions: </b></font>AIML 01.0 <br>
+<font size="2"><b>Must be within:</b></font> an AIML file <br>
+<font size="2"><b>Can be within:</b></font> N/A <br>
+<font size="2"><b>Can contain:</b></font> &lt;topic&gt;
+&lt;category&gt; <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+This is the first and last tag of each separate AIML file. </p>
+
+<p>Every new file of AIML starts with &lt;aiml version="<i>xxx</i>"&gt;
+and ends with &lt;/aiml&gt;. </p>
+
+<p><b>Example:</b> <br>
+&lt;aiml version="1.0"&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;*&lt;/pattern&gt; <br>
+&lt;that&gt;WHO IS THERE&lt;/that&gt; <br>
+&lt;template&gt;&lt;star/&gt; Who?&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;/aiml&gt; </p>
+
+<hr>
+
+<p><a name="alice"><span style="background: yellow"></span></a> </p>
+
+<h4><font color="#330033">&lt;alice&gt; &lt;/alice&gt;</font></h4>
+
+<p><font size="2"><b>Supported in versions: </b></font>AIML
+0.9&nbsp; <font color="#FF0000"><strong>(This is a deprecated
+TAG)</strong></font> <br>
+<font size="2"><b>Must be within:</b></font> an AIML file <br>
+<font size="2"><b>Can be within:</b></font> N/A <br>
+<font size="2"><b>Can contain:</b></font> &lt;topic&gt;
+&lt;category&gt; <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+This is the first and last tag of each separate AIML file. Every
+new file of AIML starts with &lt;alice&gt; and ends with
+&lt;/alice&gt;. <br>
+See <a href="#aiml">&lt;aiml&gt;</a> tag.</p>
+
+<hr>
+
+<p><a name="beforethat"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;beforethat/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font><font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+&lt;beforethat/&gt; experimental AIML tags. This tag gives access
+to the third last response that the client/user made. <br>
+See <a href="#input">&lt;input index="n"&gt;</a> tag.</p>
+
+<hr>
+
+<p><a name="category"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;category&gt; &lt;/category&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;aiml&gt; <br>
+<font size="2"><b>Can be within:</b></font> &lt;aiml&gt;
+&lt;topic&gt; <br>
+<font size="2"><b>Can contain:</b></font> &lt;that&gt;
+&lt;pattern&gt; &lt;template&gt; <br>
+<font size="2"><b>Must Contain:</b></font> &lt;pattern&gt;
+&lt;template&gt; <br>
+</p>
+
+<p><b>Description:</b> <br>
+AIML consists of a list of statements called categories.
+Each&nbsp; category contains an input pattern and a reply
+template. <br>
+The syntax of an AIML category is: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt; PATTERN &lt;/pattern&gt; <br>
+&lt;template&gt; Template &lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>or </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt; PATTERN &lt;/pattern&gt; <br>
+&lt;that&gt; THAT &lt;/that&gt; <br>
+&lt;template&gt; Template &lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The AIML category tags are case-sensitive. Each open tag has
+an associated closing tag. <br>
+</p>
+
+<hr>
+
+<p><a name="condition"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;condition name="<i>name</i>" value="<i>value</i>"&gt;
+&lt;/condition&gt;<br>
+&lt;condition name="<i>name</i>" contains="<i>value</i>"&gt;
+&lt;/condition&gt;<br>
+&lt;condition name="<i>name</i>" exists="<i>value</i>"&gt;
+&lt;/condition&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> <a href="#tsae">any
+template-side AIML expression</a> <br>
+<font size="2"><b>Must Contain:</b></font> can be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+<br>
+The &lt;condition&gt; tag has three forms.&nbsp; The "<b>multi
+condition</b>" the "<b>list-condition</b>", and
+the <b>"single name list-condition"</b>. <br>
+The difference between the forms is that the "<b>multi
+condition tags</b>" will <font color="#CC6600"><b>all</b></font>
+be evaluated, but the "<b>list-condition</b>" and the <b>"single
+name list-condition" </b>tags stop after the <font color="#CC6600"><b>first</b></font> &lt;li&gt; test is true. <br>
+Note: </p>
+
+<ol>
+    <li>There may be multiple &lt;condition&gt; tags in the
+        &lt;template&gt;. [But nesting doesn't work yet.]</li>
+    <li>The value string may contain an AIML pattern with up to
+        one wild-card "*" symbol.</li>
+    <li>The test for the &lt;condtion&gt; being true uses
+        Unifier.unify() to compare the stored predicate value
+        with the value string. This is the same way &lt;that&gt;
+        and &lt;topic&gt; work.</li>
+    <li>If the test returns true, then the response contains
+        whatever is inside the
+        &lt;condition&gt;...&lt;/condition&gt; tags, otherwise
+        those contents are ignored.</li>
+</ol>
+
+<p>This category illustrates the function of the (template-side)
+condition tag. The input pattern is "TEST COND": </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;TEST COND&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+This category has two condition statements.&lt;br&gt; <br>
+The first is activated when you are on the host
+machine:&lt;br&gt; <br>
+&lt;condition name="ip" value="localhost"&gt;
+<br>
+You are the true botmaster.&lt;br&gt; <br>
+&lt;/condition&gt; <br>
+The second condition is activated when you claim to be the
+botmaster.&lt;br&gt; <br>
+&lt;condition name="name" value="*
+WALLACE"&gt; <br>
+Impostor! You are not my real botmaster.&lt;br&gt; <br>
+&lt;/condition&gt; <br>
+&nbsp; </p>
+
+<p>Two dialogues from different hosts show two possible outputs
+of this category: <br>
+&nbsp; </p>
+
+<p>--------------------dialup.mindspring.com-------------- <br>
+Client: MY NAME IS DR WALLACE. <br>
+Robot: OK I will call you Dr Wallace. <br>
+Client: TEST COND. <br>
+Robot: This category has two condition statements. <br>
+The first is activated when you are on the host machine: <br>
+The second condition is activated when you claim to be the
+botmaster. <br>
+Impostor! You are not my real botmaster. <br>
+That concludes our test of the condition tag. <br>
+---------------------localhost------------------------- <br>
+Client: TEST COND. <br>
+Robot: This category has two condition statements. <br>
+The first is activated when you are on the host machine: <br>
+You are the true botmaster. <br>
+The second condition is activated when you claim to be the
+botmaster. <br>
+That concludes our test of the condition tag. <br>
+&nbsp; </p>
+
+<p>Another example using the different types of lists. </p>
+
+<p>This category illustrates the function of the (template-side)
+condition tag. The input pattern is "I AM BLOND". <br>
+The response will vary between "You sound very
+attractive." or "You sound very handsome."
+depending on the gender of the user. </p>
+
+<p><b>FORM</b>: <b><u>multi condition tags</u></b><b>:</b> </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;I AM BLOND&lt;/pattern&gt; <br>
+&lt;template&gt;You sound very <br>
+&lt;condition name="gender"
+value="female"&gt; attractive.&lt;/condition&gt; <br>
+&lt;condition name="gender" value="male"&gt;
+handsome.&lt;/condition&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p><b>FORM</b>: <b><u>list-condition tag</u></b><b>:</b> </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;I AM BLOND&lt;/pattern&gt; <br>
+&lt;template&gt;You sound very <br>
+&lt;condition&gt; <br>
+&lt;li name="gender" value="female"&gt;
+attractive.&lt;/li&gt; <br>
+&lt;li name="gender" value="male"&gt;
+handsome.&lt;/li&gt; <br>
+&lt;/condition&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p><b>FORM</b>: <b><u>single name list-condition tags</u></b> </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;I AM BLOND&lt;/pattern&gt; <br>
+&lt;template&gt;You sound very <br>
+&lt;condition name="gender"&gt; <br>
+&lt;li value="female"&gt; attractive.&lt;/li&gt; <br>
+&lt;li value="male"&gt; handsome.&lt;/li&gt; <br>
+&lt;/condition&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Another way to write the above <b>list-condition</b> category
+is to have the last list entry be the default expression.&nbsp;
+The last entry is executed if none of the previous list entries
+are true. </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;I AM BLOND&lt;/pattern&gt; <br>
+&lt;template&gt;You sound very <br>
+&lt;condition&gt; <br>
+&lt;li name="gender" value="female"&gt;
+attractive.&lt;/li&gt; <br>
+&lt;li&gt; handsome.&lt;/li&gt; <br>
+&lt;/condition&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; <br>
+</p>
+
+<hr>
+
+<p><a name="formal"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;formal&gt;<em>text</em>&lt;/formal&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">&lt;template&gt;</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+This tag allows for word formating within the tag boundries.<font color="#008000" size="2" face="Fixedsys"> </font><font color="#000000" size="2" face="Fixedsys">Capitalize every word</font></p>
+
+<p><b>Example:</b> <br>
+&lt;category&gt; <br>
+&lt;pattern&gt;DO FORMAL&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+My name is &lt;formal&gt;jon baer&lt;/formal&gt;. <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>This will give the following output: My name is Jon Baer.</p>
+
+<hr>
+
+<p><a name="gender"><span style="background: yellow"></span></a></p>
+
+<h4>&lt;gender&gt;&lt;/gender&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> &lt;template&gt;<br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt;<br>
+<font size="2"><b>Can contain:</b></font> <br>
+<font size="2"><b>Must Contain:</b></font> <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;gender&gt; tag works like the &lt;person&gt; tag, but
+changes gender, not pronoun.<br>
+The following example shows this swapping of the gender.<br>
+&lt;gender&gt;She told him to take a hike..&lt;/gender&gt;<br>
+Would produce the output of "He told her to take a
+hike".</p>
+
+<hr>
+
+<p><a name="get 1.0"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;get name="<i>xxx"</i>/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can be within:</b></font> &lt;pattern&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+</p>
+
+<hr>
+
+<p><a name="get"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;get_<i>xxx</i>/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> &lt;template&gt; A
+&lt;template&gt; “can” contain a &lt;get_<i>xxx</i>/&gt;
+but it doesn't have to. <br>
+<font size="2"><b>Can be within:</b></font> &lt;pattern&gt; see
+special note on read-only tags <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+Get methods are logically atomic tags, i.e. they enclose no text.
+<br>
+There are two types of get tags, "<b>read only</b>" and
+"<b>client</b>". </p>
+
+<p><b>READ ONLY GET TAGS</b>: </p>
+
+<p>The robot tags are <b>read only</b>. <br>
+Read-only tags cannot be set by the AIML.&nbsp; These properties
+are assumed to be set by some process running outside the AIML,
+such as the underlying interpreter or operating system, or set by
+the botmaster when defining the personality. </p>
+
+<p><font size="2"><b><u>LIST OF READ ONLY GET TAGS</u></b></font>
+</p>
+
+<p>&lt;beforethat/&gt; previous client input line <br>
+&lt;bot_name/&gt; Robot's name <br>
+&lt;bot_location/&gt; Robot's location <br>
+&lt;bot_gender/&gt; Robot's gender <br>
+&lt;bot_birthday/&gt; Robot's birthday <br>
+&lt;bot_master/&gt; Robot's botmaster name <br>
+&lt;bot_birthplace/&gt; Robot's birthplace <br>
+&lt;bot_boyfriend/&gt;Does the robot have a boyfriend? <br>
+&lt;bot_favoritefood/&gt; Robot's favorite food <br>
+&lt;bot_favoritemovie/&gt; Robot's favorite movie <br>
+&lt;bot_favoriteband/&gt; Robot's favorite band <br>
+&lt;bot_favoritebook/&gt; Robot's favorite book <br>
+&lt;bot_favoritecolor/&gt; Robot's favorite color <br>
+&lt;bot_favoritesong/&gt; Robot's favorite song <br>
+&lt;for_fun/&gt; What the robot does for fun <br>
+&lt;bot_friends/&gt; The robot's friends <br>
+&lt;bot_girlfriend/&gt; Does the robot have a girlfriend? <br>
+&lt;bot_wear/&gt; Robot's clothing and apparel <br>
+&lt;bot_sign/&gt; Robot's astrological sign <br>
+&lt;bot_looklike/&gt; The robot appearance <br>
+&lt;bot_music/&gt; Robot's favorite kind of music <br>
+&lt;bot_talkabout/&gt; Robot's favorite subjects <br>
+&lt;getsize/&gt; A string indicating robot memory size <br>
+&lt;getversion/&gt; The ALICE program version <br>
+&lt;that/&gt; previous robot response <br>
+&lt;justthat/&gt; current client input line <br>
+&lt;justbeforethat/&gt; previous previous robot response <br>
+&lt;question/&gt; A random question </p>
+
+<p><b>CLIENT GET TAGS:</b> </p>
+
+<p>The "<b>client</b>" tags can be set and have an
+associated &lt;set_<i>name</i>&gt;<i>xxx</i>&lt;/set_<i>name</i>&gt;
+tag. <br>
+All the "client get" tags retrieve values stored
+relative to a particular client user ID (UID). <br>
+A <b>client get tag</b> can not be used in a &lt;pattern&gt;
+tag.&nbsp; They are permitted only in &lt;template&gt; level
+tags. <br>
+Custom client get/set tags can be created by simply adding the
+tag. <br>
+See the information on <a href="#custom%20tags">custom tags</a>. </p>
+
+<p><font size="2"><b><u>LIST OF STANDARD CLIENT GET TAGS</u></b></font>
+</p>
+
+<p>&lt;get_name/&gt; client's name <br>
+&lt;get_topic/&gt; The "topic" of conversation <br>
+&lt;get_ip/&gt; Get the client's IP address <br>
+&lt;get_it/&gt; the value of "it" <br>
+&lt;get_they/&gt; the value of "they" <br>
+&lt;get_we/&gt; the value of "we" <br>
+&lt;get_gender/&gt; a string like "female" or
+"male" for client gender <br>
+&lt;get_location/&gt; the client's geographic location <br>
+&lt;get_age/&gt; <br>
+&lt;get_has/&gt; <br>
+</p>
+
+<hr size="1">
+
+<p><a name="gossip"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;gossip&gt; &lt;/gossip&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> <a href="#tsae">any
+template-side AIML expression (TSAE?)</a> <br>
+<font size="2"><b>Must Contain:</b></font> can be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+&lt;gossip&gt; X &lt;/gossip&gt; Save X as gossip. </p>
+
+<p>Gossip is an interesting "learning" feature of AIML.
+The best way to illustrate the gossip function is with an
+example. Consider the category with the pattern "I * "
+and the template: </p>
+
+<p>Thanks for the gossip: <br>
+&lt;gossip&gt;&lt;get name="name"/&gt; said
+&lt;get_gender/&gt; &lt;person2/&gt; &lt;/gossip&gt;. </p>
+
+<p>The gossip() function tells AIML that the botmaster wants to
+save this tidbit as gossip. The &lt;get_gender/&gt; function
+returns "he" or "she" as determined by the
+markup functions &lt;set_female&gt; and &lt;set_male/&gt;. The
+&lt;person2/&gt; function converts the statement * to second
+person. <br>
+At present the robot stores the gossip collected in a file called
+"gossip.txt". <br>
+</p>
+
+<hr>
+
+<p><a name="if"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;if&gt; &lt;/if&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> </p>
+
+<p>&lt;if name="topic"
+value="cars"&gt;&lt;/if&gt; <br>
+&lt;if name="topic"
+contains="cars"&gt;&lt;/if&gt; <br>
+&lt;if name="topic"
+exists="true"&gt;&lt;/if&gt; </p>
+
+<p>&lt;template&gt; <br>
+&lt;if name="name" exists="true"&gt; <br>
+Your name is &lt;get_name/&gt;. <br>
+&lt;else/&gt; <br>
+What is your name? <br>
+&lt;/if&gt; <br>
+&lt;/template&gt; </p>
+
+<p>I am *guessing* that &lt;if name="name"
+value=""&gt; should work as well. </p>
+
+<p>I've added an &lt;if&gt; tag for javascript evaluation: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;*&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+&lt;if expr="getFoo() == true"&gt;It was
+true.&lt;/if&gt; This is a test. <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Syntax: </p>
+
+<p>&lt;if expr="javascript expression"&gt;Will be sent
+back if evaluates to "true"&lt;/if&gt; <br>
+</p>
+
+<hr>
+
+<p><a name="input"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;input index="<em>number</em>"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;input index="n"/&gt; tag gives the entire user
+input response. The value "n" is a backward reference
+to the previous user response. A value of "1" will give
+the last user response, the value "2" will give the
+second to the last user response, the value "3" will
+give the third last user response, and so on.<br>
+The index="n" is optional, and if left off, the index
+value of "1" is assumed. The tag &lt;input/&gt; is
+equivilant to &lt;input index="1"/&gt;.</p>
+
+<p>Client: MY NAME IS BILL. <br>
+Robot: Bill, are you married? <br>
+Client: YES. <br>
+Robot: What kind of a car do you drive? <br>
+Client: I DRIVE A MAZDA. <br>
+<br>
+&nbsp;In this example, at the end of this exchange, here are the
+values of &lt;input index="n"/&gt;<br>
+&lt;input index="1"/&gt; = I DRIVE A MAZDA<br>
+&lt;input index="2"/&gt; = YES<br>
+&lt;input index="3"/&gt; = MY NAME IS BILL<br>
+</p>
+
+<hr>
+
+<p><a name="script"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;javascript&gt; &lt;/javascript&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+</p>
+
+<hr size="1">
+
+<p><a name="justbeforethat"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;justbeforethat/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font><font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+&lt;justbeforethat/&gt; experimental AIML tag. This tag gives
+access to the second last response that the bot made. <br>
+It has been replaced with the &lt;that index="2,1"/&gt;
+tag.<br>
+See <a href="#that%20index">&lt;that index="nx,ny/"&gt;</a>
+tag.</p>
+
+<hr>
+
+<p><a name="justthat"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;justthat/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font><font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+&lt;justthat/&gt; experimental AIML tag. This tag gives access to
+the second last response that the client/user made. <br>
+See <a href="#input">&lt;input index="n"&gt;</a> tag.</p>
+
+<hr>
+
+<p><a name="learn"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;learn filename="<i>X</i>"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> X must be a valid AIML
+file. <br>
+</p>
+
+<p><b>Description:</b> <br>
+The template may contain a &lt;learn/&gt; tag to recursively load
+an AIML file. The semantics of a load are the same as a merge:
+categories loaded first have priority; the server eliminates
+categories with duplicate patterns. </p>
+
+<p>The default robot file, startup.aiml contains a global
+&lt;learn&gt; tag to load all files in the bot directory. </p>
+
+<hr>
+
+<p><a name="list"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;li&gt; &lt;/li&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;condition&gt; or
+&lt;random&gt; <br>
+<font size="2"><b>Can be within:</b></font> &lt;condition&gt; or
+&lt;random&gt; <br>
+<font size="2"><b>Can contain:</b></font> could be empty <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+List element. <br>
+Currently the list can be used within the &lt;random&gt; and
+&lt;condition&gt; tag sets. </p>
+
+<p>A list element can contain standard text as well as any AIML
+tag that is permitted within the &lt;template&gt; tag set. <br>
+</p>
+
+<hr>
+
+<p><a name="load"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;load filename="<i>X</i>"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> X must be a valid AIML
+file. <br>
+</p>
+
+<p><b>Description:</b> <br>
+See the <a href="#learn">&lt;learn&gt;</a> tag. <br>
+</p>
+
+<hr>
+
+<p><a name="lowercase"><span style="background: yellow"></span></a> </p>
+
+<h4><font color="#330033">&lt;</font>lowercase&gt;<em>text</em>&lt;/lowercase&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">&lt;template&gt;</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+This tag allows for word formating within the tag boundries. <strong>all
+lower case</strong>.</p>
+
+<p><b>Example:</b> <br>
+&lt;category&gt; <br>
+&lt;pattern&gt;DO LOWERCASE&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+This is a &lt;lowercase&gt;LOWERCASE&lt;/lowercase&gt; test. <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>This category will give the following outout: This is a
+lowercase test.</p>
+
+<hr>
+
+<p><a name="pattern"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;pattern &lt;/pattern&gt;</h4>
+
+<p><font size="2"><b>Supported in versions: </b></font>AIML 1.0 <br>
+<font size="2"><b>Must be within: </b></font>&lt;category&gt; <br>
+<font size="2"><b>Can be within:</b></font> undefined <br>
+<font size="2"><b>Can contain:</b></font> * _ &lt;name/&gt; <br>
+<font size="2"><b>Must Contain:</b></font> <a href="#normalized%20text">Normalized text</a> "Pattern-side
+AIML expressions (<a href="#psae">PSAE</a>)." <br>
+</p>
+
+<p><b>Description:</b> <br>
+The pattern is the "stimulus" or "input" part
+of the category. <br>
+The &lt;pattern&gt; tag is permitted only within a
+&lt;category&gt; tag set.&nbsp; Only one pattern tag is permitted
+to exist, and it must be the first tag to appear after a
+&lt;category&gt; <br>
+tag. </p>
+
+<p>The pattern is an expression in a formal language that
+consists of </p>
+
+<ol>
+    <li>Words of natural language in UPPER CASE.</li>
+    <li>The symbol * which matches any sequence of one or more
+        words.</li>
+    <li>The symbol _ which is the same as * except that it comes
+        after Z in lexicographic order.</li>
+    <li>The &lt;name/&gt; tag which is replaced at robot load
+        time with the name of the robot.</li>
+</ol>
+
+<p>Note there is a difference between the patterns HELLO and
+HELLO *. <br>
+HELLO matches only identical one-word sentences
+("Hello.") and HELLO * matches any sentence of two or
+more words starting with "Hello" ("Hello how are
+you?"). </p>
+
+<p>To simplify pattern description and matching, AIML patterns
+allow only one "*" per pattern. In other words,
+"MY NAME IS *" is a valid pattern, but "* AND
+*" is not. <br>
+</p>
+
+<hr>
+
+<p><a name="person"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;person&gt; &lt;/person&gt; &lt;person/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;person&gt; and &lt;person2&gt; tags indicate a place
+where the AIML interpreter changes the personal pronouns in a
+sentence. </p>
+
+<p>&lt;person2&gt; X &lt;/person2&gt; change X from 1st to 2nd
+person <br>
+&lt;person&gt; X &lt;/person&gt; exchange 1st and 3rd person </p>
+
+<p>&lt;person2&gt; is not often used. The main application is
+"gossip": </p>
+
+<p>Client: I admire robots like you. <br>
+Robot: That's good information: Joe said he admire robots like
+me. </p>
+
+<p>The transformation is a combination of: </p>
+
+<p>1. change the first person pronouns to second person. <br>
+2. change the third person pronouns to first person. </p>
+
+<p>The &lt;person&gt; substitution is much more common and easier
+to understand, because it simply exchanges 1st and 3rd person
+pronouns. The main issue with &lt;person&gt; in English is
+knowing when to use "I" and when to use "me".
+</p>
+
+<p>The XML specification requires that every start tag such
+as&nbsp; &lt;person&gt; be followed by a matching end tag like
+&lt;/person&gt;. HTML is more relaxed about this requirement,
+exemplified by the liberal use of the &lt;IMG&gt; tag without a
+corresponding &lt;/IMG&gt;. XML supports a shorthand notation for
+the "atomic" tags. The &lt;star/&gt; tag is an example
+of a shorthand AIML tag. &lt;person/&gt; is another example: </p>
+
+<p>&lt;person/&gt; = &lt;person&gt;&lt;star/&gt;&lt;/person&gt; <br>
+</p>
+
+<hr>
+
+<p><a name="person2"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;person2&gt; &lt;/person2&gt; &lt;person2/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> TSAE <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+&lt;person2/&gt; = &lt;person2&gt;&lt;star/&gt;&lt;/person2&gt; </p>
+
+<p>See <a href="#person">&lt;person&gt;</a> tag for more
+information about &lt;person2/&gt;. <br>
+</p>
+
+<hr>
+<span style="background: yellow">
+<h4>&lt;personf&gt; &lt;/personf&gt; &lt;personf/&gt;</h4>
+</span>
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> TSAE <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+The value of &lt;personf/&gt; (a "formatted" personal
+pronoun transformation) is shown by the example </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;WHAT IS A *&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+What does <br>
+&lt;A
+HREF="http://www.dictionary.com/cgi-bin/dict.pl?term=&lt;personf/&gt;"&gt;
+<br>
+&lt;set_it&gt; &lt;person/&gt; &lt;/set_it&gt; <br>
+&lt;/A&gt; mean? &lt;BR&gt; <br>
+Or Ask Jeeves: <br>
+&lt;A
+HREF="http://www.ask.com/AskJeeves.asp?ask=WHAT%20IS%20A%20&lt;personf/&gt;"&gt;
+<br>
+What is a &lt;person/&gt;? <br>
+&lt;/A&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The search strings formatted for the Webster Dictionary and
+for the Ask.com search engine utilize &lt;personf/&gt;. The
+effect is the same as &lt;person/&gt;, but the formatting inserts
+an escaped "%20" in places of the spaces returned by
+&lt;person/&gt;. These escape sequences permit the HTTP GET
+methods to transmit multiple-word queries. <br>
+</p>
+
+<hr>
+
+<p><a name="random"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;random&gt; &lt;/random&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> &lt;li&gt; <br>
+<font size="2"><b>Must Contain:</b></font> &lt;li&gt; <br>
+</p>
+
+<p><b>Description:</b> <br>
+Its purpose is random selection of one of a set of list items. </p>
+
+<p>&lt;random&gt; <br>
+&lt;li&gt;A&lt;/li&gt; <br>
+&lt;li&gt;B&lt;/li&gt; <br>
+&lt;li&gt;C&lt;/li&gt; <br>
+&lt;/random&gt; </p>
+
+<p>Say one of A, B or C randomly </p>
+
+<p>The &lt;random&gt; tag has higher precedence than other AIML
+tags. <br>
+Moreover, the AIML parser interprets only the markup inside the
+selected random list item. AIML tags inside other list items are
+ignored. <br>
+</p>
+
+<hr size="1">
+
+<p><a name="sentence"><span style="background: yellow"></span></a> </p>
+
+<h4><font color="#330033">&lt;</font>sentence&gt;<em>text</em>&lt;/sentence&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">&lt;template&gt;</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+This tag allows for word formating within the tag boundries. <font color="#000000" size="2" face="Fixedsys">Capitalize only the
+first word</font></p>
+
+<p><b>Example:</b> <br>
+&lt;category&gt; <br>
+&lt;pattern&gt;DO SENTENCE&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+&lt;sentence&gt;this is some kind of sentence
+test.&lt;/sentence&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>This category will give the following outout: This is some
+kind of sentence test.</p>
+
+<hr>
+
+<h4>&lt;set_animagent/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+</p>
+
+<hr size="1">
+
+<p><a name="female"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;set_female/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+Note &lt;set_female/&gt; =
+&lt;set_gender&gt;female&lt;/set_gender&gt; </p>
+
+<p>These are “shortcuts”. <br>
+</p>
+
+<hr size="1">
+
+<p><a name="it"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;set_it&gt;&lt;/set_it&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The guiding principle in creating content is dialogue analysis.
+The principle applies to pronouns like "it",
+"he" and "we". This example shows how a
+couple of tricks helps us find places where the pronoun tags
+improve the dialogue. </p>
+
+<p>Client: HELLO <br>
+Robot: Hi there! <br>
+Client: HOW ARE YOU <br>
+Robot: I am functioning within normal parameters. <br>
+Client: I AM BROKE <br>
+Robot: Do you mean your name is broke. <br>
+Client: NO I HAVE NO MONEY <br>
+Robot: I see. Would you like to have it? <br>
+Client: YES <br>
+Robot: "Would you like to have it"? Yes? </p>
+
+<p>One of the default responses to a YES pattern is <br>
+"&lt;that/&gt;?" Yes? </p>
+
+<p>The conversation breaks down somewhat at this point, but the
+robot nonetheless conveys an illusion of understanding the
+client's response. With its response, the robot is really telling
+the botmaster to create a new "YES" reply specific to
+this situation: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;YES&lt;/pattern&gt;&lt;that&gt;WOULD YOU LIKE TO
+HAVE IT&lt;/that&gt; <br>
+&lt;template&gt;Where do you usually get
+&lt;get_it/&gt;?&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Now the next time we run the dialogue it ends with: </p>
+
+<p>Client: NO I HAVE NO MONEY <br>
+Robot: I see. Would you like to have it? <br>
+Client: YES <br>
+Robot: Where do you usually get money? </p>
+
+<p>There is no automated technique to finding the conversation
+points where the pronoun tags improve the flow of conversation.
+This is the "art" of AIML programming. The example
+shown here with '"&lt;that/&gt;?" Yes?' exemplifies one
+approach to finding these conversation way points. There are no
+doubt countless other tricks like this, and the field is wide
+open to linguists and writers to help us uncover them. </p>
+
+<p>Here is an example that might help clarify the meaning of the
+pronoun "it." </p>
+
+<p>The category with the pattern "DO YOU LIKE *" is a
+kind of default category for a whole class of inputs matching
+"Do you like X?", when the input does not match a
+category with a more specific pattern like "DO YOU LIKE
+CATS". No matter what the client says, we want the robot to
+remember that "it" stands for "X". </p>
+
+<p>Many inputs activate this default category, so the botmaster
+tries to create a variety of replies using the &lt;random&gt; tag
+twice. </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;DO YOU LIKE *&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+&lt;think&gt;&lt;set_it&gt;&lt;person/&gt;&lt;/set_it&gt;&lt;/think&gt;
+<br>
+&lt;random&gt; <br>
+&lt;li&gt;I don't know if I like &lt;person/&gt;. &lt;/li&gt; <br>
+&lt;li&gt;I've heard other people say they like that. &lt;/li&gt;
+<br>
+&lt;li&gt;Some people like it. &lt;/li&gt; <br>
+&lt;li&gt;Do you like it? &lt;/li&gt; <br>
+&lt;/random&gt; <br>
+&lt;random&gt; <br>
+&lt;li&gt;&lt;for_fun/&gt;. &lt;/li&gt; <br>
+&lt;li&gt;I like pets. &lt;/li&gt; <br>
+&lt;li&gt;I like trains. &lt;/li&gt; <br>
+&lt;li&gt;But I like cats. &lt;/li&gt; <br>
+&lt;li&gt;But I think airplanes are cool. &lt;/li&gt; <br>
+&lt;li&gt;I like to talk about movies and music. &lt;/li&gt; <br>
+&lt;/random&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;think&gt;&lt;set_it&gt;&lt;person/&gt;&lt;/set_it&gt;&lt;/think&gt;
+</p>
+
+<p>results in the pronoun "it" being bound to the value
+of "*", rewritten in third person. With this category,
+the robot has the following dialogue: </p>
+
+<p>Client: Do you like Dr. Who <br>
+Robot: How old are you? I like to make new friends. </p>
+
+<p>The robot response is a combination of two random selections. </p>
+
+<p>Client: It is a TV program <br>
+Robot: Dr. Who is a TV program. I suppose that makes sense. </p>
+
+<p>To generate the final response, the robot applied its
+category: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;IT IS A *&lt;/pattern&gt; <br>
+&lt;template&gt;&lt;get_it/&gt; is a &lt;person/&gt;. I suppose
+that makes sense.&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The robot is correct that the reply does indeed make sense.
+Does this example suggest that in our human mind "it"
+is just a temporary storage register for a fragment of text? <br>
+</p>
+
+<hr size="1">
+
+<p><a name="male"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;set_male/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font><br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+Note &lt;set_male/&gt; =
+&lt;set_gender&gt;male&lt;/set_gender&gt; </p>
+
+<p>These are “shortcuts”. <br>
+</p>
+
+<hr size="1">
+
+<p><a name="set"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;set_<i>xxx</i>&gt; &lt;/set_<i>xxx</i>&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+Set tags consist of <b>single-tag</b> and <b>double-tag</b>
+markup. <br>
+&nbsp; </p>
+
+<p><b>single-tag:</b> <br>
+&lt;set_male/&gt; the client gender is male <br>
+&lt;set_female/&gt; the client gender is female <br>
+&lt;set_animagent/&gt; activates the animation agent. </p>
+
+<p><b>double-tag:</b> <br>
+&lt;set_name&gt; X &lt;/set_name&gt; sets the client name to X <font color="#FF9900"><b>(make note this is not the same as &lt;set_</b><b><i>xxx</i></b><b>&gt;)</b></font>
+<br>
+&lt;set_it&gt; X &lt;/set_it&gt; sets the value of "it"
+to X <br>
+&lt;set_location&gt; X &lt;/set_location&gt; sets the value of
+client location <br>
+&lt;set_<i>xxx</i>&gt; X &lt;/set_<i>xxx</i>&gt; will create the
+predicate of "<i>xxx</i>" and set it's value to X </p>
+
+<hr size="1">
+
+<p><br>
+<a name="srai"></a> <span style="background: yellow"></span></p>
+
+<h4>&lt;srai&gt; &lt;/srai&gt; &lt;sr/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> <a href="#tsae">TSAE</a>
+(&lt;srai&gt; form only, &lt;sr/&gt; must be empty) <br>
+<font size="2"><b>Must Contain:</b></font> &lt;sr/&gt; must be
+empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+The <a href="#recursive">recursive</a> function &lt;srai&gt;
+stands for "Stimulus-Response artificial intelligence"
+and means that the text between the tags should be sent
+recursively to the pattern matcher and the result interpreted.
+The resulting text replaces the original text in the markup. </p>
+
+<p>&lt;srai&gt; X &lt;/srai&gt; calls the pattern matcher
+recursively on X. <br>
+&lt;sr/&gt; recursive call to chat robot </p>
+
+<p>&lt;sr/&gt; abbreviates &lt;srai&gt; &lt;star/&gt;
+&lt;/srai&gt; <br>
+&nbsp; </p>
+
+<p>The most common application of &lt;srai&gt; is "<a href="#symbolic">symbolic reduction</a>" of a complex
+sentence form to a simpler one: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;DO YOU KNOW WHAT * IS&lt;/pattern&gt; <br>
+&lt;template&gt;&lt;srai&gt;WHAT IS
+&lt;star/&gt;&lt;/srai&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>so the botmaster can store most knowledge in the simplest
+categories: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;WHAT IS LINUX&lt;/pattern&gt; <br>
+&lt;template&gt;&lt;set_it&gt;Linux&lt;/set_it&gt; is the best
+operating system.&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>With all the "<a href="#symbolic">symbolic reduction</a>"
+categories, the robot gives the same answer for: </p>
+
+<p>"What is Linux?" <br>
+"Do you know what Linux is?" <br>
+"Define Linux" <br>
+"Alice please tell me what Linux is right now" </p>
+
+<p>Sometimes the response consists of two symbolic reductions
+together: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;YES *&lt;/pattern&gt; <br>
+&lt;template&gt;&lt;srai&gt;YES&lt;/srai&gt;
+&lt;sr/&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>With this category the robot will reply to all "Yes
+something" inputs by combining the reply to "Yes"
+with the reply to "something". <br>
+Remember, &lt;sr/&gt; is an abbreviation for
+&lt;srai&gt;&lt;star/&gt;&lt;/srai&gt;. </p>
+
+<p>The &lt;srai&gt; tag is also the answer to the question: Can I
+have more than one pattern in the same category? Suppose you want
+the same answer for two different patterns. You might think of
+writing something like this: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;BYE&lt;/pattern&gt; <br>
+&lt;pattern&gt;GOODBYE&lt;/pattern&gt; <br>
+&lt;template&gt;See you later.&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Right now you can't put two patterns in one category, but with
+&lt;srai&gt; you can get the same effect: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;GOODBYE&lt;/pattern&gt;
+&lt;template&gt;&lt;srai&gt;BYE&lt;/srai&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;BYE&lt;/pattern&gt; &lt;template&gt;See you
+later.&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>If you look through the AIML files you will see many examples
+of &lt;srai&gt; mapping multiple patterns to the same reply. </p>
+
+<p>Another interesting usage of the &lt;srai&gt; tag is that of a
+"call" to another category which performs a specific
+task.&nbsp; Here is an example of this usage in the user login. <br>
+When the user responds to the initial question What can I call
+you", the &lt;srai&gt; tag is used to call the "GET
+NAME GENDER" category.&nbsp; The only function of this <br>
+category is to search for a match of some names, and if found set
+the user gender.&nbsp; If no match is found, then the question
+"ARE YOU A MAN OR A WOMAN" is <br>
+asked.&nbsp; The reason for making this an independent category
+is to allow this function to be called by other categories that
+may need to set the user gender. </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;*&lt;/pattern&gt;&lt;that&gt;WHAT CAN I CALL
+YOU&lt;/that&gt; <br>
+&lt;template&gt; <br>
+&lt;think&gt;&lt;set_personality&gt;average&lt;/set_personality&gt;&lt;setname/&gt;&lt;/think&gt;
+<br>
+Nice to meet you &lt;getname/&gt;. <br>
+&lt;srai&gt;GET NAME GENDER&lt;/srai&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;GET NAME GENDER&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+&lt;condition name ="name"&gt; <br>
+&lt;li
+value="JEB"&gt;&lt;think&gt;&lt;set_gender&gt;male&lt;/set_gender&gt;&lt;/think&gt;&lt;/li&gt;
+<br>
+&lt;li
+value="ANDERS"&gt;&lt;think&gt;&lt;set_gender&gt;male&lt;/set_gender&gt;&lt;/think&gt;&lt;/li&gt;
+<br>
+&lt;li
+value="ANDRE"&gt;&lt;think&gt;&lt;set_gender&gt;male&lt;/set_gender&gt;&lt;/think&gt;&lt;/li&gt;
+<br>
+&lt;li
+value="ALLI"&gt;&lt;think&gt;&lt;set_gender&gt;female&lt;/set_gender&gt;&lt;/think&gt;&lt;/li&gt;
+<br>
+&lt;li
+value="ALLIE"&gt;&lt;think&gt;&lt;set_gender&gt;female&lt;/set_gender&gt;&lt;/think&gt;&lt;/li&gt;
+<br>
+&lt;li&gt;&lt;br&gt;Are you a man or a woman?&lt;/li&gt; <br>
+&lt;/condition&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; <br>
+</p>
+
+<hr>
+
+<p><a name="star"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;star/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font><br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;star/&gt; tag indicates the input text fragment matching
+the pattern '*'. <br>
+See <a href="#star%201.0">&lt;star index="number"/&gt;</a></p>
+
+<hr>
+
+<p><a name="star 1.0"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;star index="<em>number</em>"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;star index="n"/&gt; tag indicates the input
+text fragment matching the "n" pattern '*'. <br>
+&lt;star index="1"/&gt; yields the first matching text
+fragment.<br>
+&lt;star index="2"/&gt; yields the second matching text
+fragment.<br>
+&lt;star index="3"/&gt; yields the third matching text
+fragment.<br>
+And so on....<br>
+The index="n" is optional, and if left off, the index
+value of "1" is assumed. The tag &lt;star/&gt; is
+equivilant to &lt;star index="1"/&gt;.</p>
+
+<p><b>Example:</b> <br>
+CLIENT: "Hello there, my name is Tom"</p>
+
+<p>&lt;pattern&gt;HELLO * MY NAME IS *&lt;/pattern&gt; <br>
+&lt;star index="1"/&gt; = there<br>
+&lt;star index="2"/&gt; = tom</p>
+
+<hr>
+
+<p><a name="system"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;system&gt; &lt;/system&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> <a href="#tsae">TSAE</a>
+(Template-side AIML Expression) <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;system&gt;X&lt;/system&gt; tag will run the shell command
+X. <br>
+The command X is assumed to produce its output in line-oriented
+format suitable for a BufferdReader to read line by line. </p>
+
+<p>A simple example of this command in an AIML script is: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;WHAT TIME IS IT&lt;/pattern&gt; <br>
+&lt;template&gt;The local time is:
+&lt;system&gt;date&lt;/system&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The "date" command is a system command that
+generates a text string containing the date and time. (Note that
+this might not work on Windows). </p>
+
+<p>Take extreme care in using the &lt;system&gt; tag because it
+potentially permits remote clients to run a command on your
+system. <br>
+</p>
+
+<hr>
+
+<p><a name="template"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;template&gt; &lt;/template&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;category&gt; <br>
+<font size="2"><b>Can be within:</b></font> undefined <br>
+<font size="2"><b>Can contain:</b></font> <a href="#tsae">TSAE</a>
+(Template-side AIML Expression) <br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+A template is the "response" or "output" part
+of an AIML category. </p>
+
+<p>The template is the formula for constructing the reply. The
+simplest template consists of plain, unmarked text. AIML provides
+markup functions to tailor the replies for each individual input
+and client. <br>
+The markup function &lt;get_name/&gt; for example inserts the
+client's name into the reply. </p>
+
+<p>The template may call the pattern matcher recursively using
+the &lt;sr/&gt; and &lt;srai&gt; tags. Many templates are simple
+symbolic reductions that map one sentence form to another, for
+example "Do you know what X is?" transforms to
+"What is X" with the category </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;DO YOU KNOW WHAT * IS&lt;/pattern&gt; <br>
+&lt;template&gt;&lt;srai&gt;WHAT IS &lt;star/&gt;
+&lt;/srai&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The template may also contain other embedded <a href="#html">HTML,
+</a><a href="#java">JAVAScript</a>, and XML. These embedded tags
+may cause the browser to play a sound, show an image, or run an
+applet. There is considerable freedom of expression in the
+construction of response templates. The botmaster is encouraged
+to study the examples in ALICE, and experiment with new ideas. <br>
+</p>
+
+<hr>
+
+<p><a name="that"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;that&gt; &lt;/that&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;category&gt; <br>
+<font size="2"><b>Can be within:</b></font> undefined <br>
+<font size="2"><b>Can contain:</b></font> * _ <a href="#normalized%20text">NORMALIZED TEXT</a> (<a href="#psae">PSAE</a>)
+<br>
+<font size="2"><b>Must Contain:</b></font> could be empty <br>
+</p>
+
+<p><b>Description:</b> <br>
+The keyword "that" in ALICE refers to whatever the
+robot said before a user input. Conceptually the choice of
+"that" comes from the observation of the role of the
+word "that" in dialogue fragments like: </p>
+
+<p>Robot: Today is yesterday. <br>
+Client: That makes no sense. </p>
+
+<p>Robot: The answer is 3.14159 <br>
+Client: That is cool. </p>
+
+<p>In AIML the syntax &lt;that&gt;...&lt;/that&gt; permits an
+optional "ThatPattern" to match the robot's
+"that" expression. A common example using
+"that" is any yes-no question: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;YES&lt;/pattern&gt; <br>
+&lt;that&gt; DO YOU LIKE MOVIES &lt;/that&gt; <br>
+&lt;template&gt; What's your favorite movie? &lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>This category handles the user input "YES" and
+checks to see whether the client is replying to the question
+"What's your favorite movie?". </p>
+
+<p>One interesting application of "that" are the
+categories that enable a robot to respond to
+"knock-knock" jokes: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;KNOCK KNOCK&lt;/pattern&gt; <br>
+&lt;template&gt;Who's there?&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;*&lt;/pattern&gt; <br>
+&lt;that&gt;WHO IS THERE&lt;/that&gt; <br>
+&lt;template&gt;&lt;person/&gt; Who?&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;*&lt;/pattern&gt; <br>
+&lt;that&gt;* WHO&lt;/that&gt; <br>
+&lt;template&gt;Ha ha very funny,
+&lt;getname/&gt;&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Client: KNOCK KNOCK <br>
+Robot: Who's there? <br>
+Client: BANANA <br>
+Robot: banana Who? <br>
+Client: KNOCK KNOCK <br>
+Robot: Who's there? <br>
+Client: BANANA <br>
+Robot: banana Who? <br>
+Client: KNOCK KNOCK <br>
+Robot: Who's there? <br>
+Client: ORANGE <br>
+Robot: orange Who? <br>
+Client: ORANGE YOU GLAD I DID NOT SAY BANANA <br>
+Robot: Ha ha very funny, Aol-person <br>
+</p>
+
+<hr size="1">
+
+<p><a name="that/"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;that/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;category&gt; <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> * _ <a href="#normalized%20text">NORMALIZED TEXT</a> <br>
+<font size="2"><b>Must Contain:</b></font> <a href="#normalized%20text">NORMALIZED TEXT</a> <br>
+</p>
+
+<p><b>Description:</b> <br>
+The AIML tag &lt;that&gt; refers to the robot's previous reply.
+There are two forms of the &lt;that&gt; tag: a paired form
+&lt;that&gt;...&lt;/that&gt; appearing in a category, and an
+atomic form &lt;that/&gt; always appearing in a template. Often
+we can use &lt;that/&gt; to find an opportunity to create a
+category with &lt;that&gt;&lt;/that&gt;. </p>
+
+<p>One of the default replies to the input "WHY" is
+"&lt;that/&gt;"? Why? This default produces the
+following dialogue fragment: </p>
+
+<p>Robot: Do not ask me any more questions please. <br>
+Client: WHY <br>
+Robot: "Do not ask me any more questions please"? Why? </p>
+
+<p>The botmaster notices the fragment and creates the new AIML
+category: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;WHY&lt;/pattern&gt; <br>
+&lt;that&gt;DO NOT ASK ME ANY MORE QUESTIONS PLEASE&lt;/that&gt; <br>
+&lt;template&gt;Because I would rather talk about
+you.&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>Now the next client who asks "WHY" to the robot's
+request will active the new &lt;that&gt; category: </p>
+
+<p>Robot: Do not ask me any more questions please. <br>
+Client: WHY <br>
+Robot: Because I would rather talk about you. </p>
+
+<p>This style of conversational analysis does not presuppose that
+we know when the client will say "WHY"; rather it looks
+backward to identify cases where the "WHY" appeared
+following one of the robot's statements. Having identified the
+conversation point, the botmaster creates the new category. <br>
+</p>
+
+<hr size="1">
+
+<p><a name="that index"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;that index="<i>nx,ny</i>"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+This tag gives access to a previousresponse that the bot made.<br>
+&lt;justbeforethat/&gt; has been replaced with &lt;that
+index="2,1"/&gt;<br>
+The index="nx,ny" is optional, and if left off, the
+index value of "1,1" is assumed. The tag &lt;that/&gt;
+is equivilant to &lt;that index="1,1"/&gt;.</p>
+
+<hr size="1">
+
+<p><a name="thatstar"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;thatstar/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font><br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;thatstar/&gt; tag returns the input text fragment
+matching the pattern '*' contained in a
+&lt;that&gt;...&lt;/that&gt; tag set. <br>
+See <a href="#thatstar%201.0">&lt;thatstar index="n"/&gt;</a>
+tag.</p>
+
+<p>&nbsp;</p>
+
+<hr size="1">
+
+<p><a name="thatstar 1.0"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;thatstar index="n"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;thatstar index="n"/&gt; tag returns the input
+text fragment matching the "n" pattern '*' contained in
+a &lt;that&gt;...&lt;/that&gt; tag set. <br>
+The index="n" is optional, and if left off, the index
+value of "1" is assumed. The tag &lt;thatstar/&gt; is
+equivilant to &lt;thatstar index="1"/&gt;.</p>
+
+<p><b>Example:<br>
+</b>&lt;category&gt;<br>
+&lt;pattern&gt;*&lt;/pattern&gt; &lt;that&gt;WHAT IS YOUR
+FAVORITE *&lt;/that&gt;<br>
+&lt;template&gt;<br>
+&lt;srai&gt;MY FAVORITE &lt;thatstar/&gt; IS
+&lt;star/&gt;&lt;/srai&gt;<br>
+&lt;/template&gt; <br>
+&lt;/category&gt; &nbsp;</p>
+
+<p>This category takes care of all the questions asked by the
+robot about favorites: "What is your favorite movie?",
+"What is your favorite color?", and so on, reducing the
+responses to a single declarative sentence.</p>
+
+<p>Suppose the robot asks a number of questions like, "What
+kind of computer is it?"&nbsp; "What kind of car is
+it?", "What kind of dog is it?"&nbsp; &nbsp; Then
+you can capture a lot of "default" replies with the
+category: &nbsp; <br>
+&lt;category&gt;<br>
+&lt;pattern&gt;*&lt;/pattern&gt;&lt;that&gt;WHAT KIND OF * IS
+IT&lt;/that&gt;<br>
+&lt;template&gt;&lt;person/&gt; is a <br>
+&lt;random&gt;<br>
+&lt;li&gt;pretty good&lt;/li&gt; <br>
+&lt;li&gt;popular&lt;/li&gt; <br>
+&lt;li&gt;decent&lt;/li&gt;<br>
+&lt;/random&gt; kind of &lt;thatstar/&gt;. <br>
+&lt;/template&gt; <br>
+&lt;/category&gt;</p>
+
+<p>So now you can get: </p>
+
+<p>Robot: What kind of computer is it? <br>
+Client: Pentium 4GHz <br>
+Robot: Pentium 4GHz is a decent kind of computer. &nbsp; <br>
+Robot: What kind of&nbsp;car&nbsp;is it? <br>
+Client: VW Beetle <br>
+Robot:&nbsp;VW Beetle&nbsp;is a popular kind of car. &nbsp; <br>
+and so on.</p>
+
+<hr size="1">
+
+<p><a name="think"><span style="background: yellow"></span></a> </p>
+
+<h4>&lt;think&gt; &lt;/think&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">UNKNOWN</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+The simple purpose of the &lt;think&gt; X &lt;/think&gt; tag pair
+is to evaluate the AIML expression X, but "nullify" or
+hide the result from the client reply. </p>
+
+<p>A simple example: </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt;I AM FEMALE&lt;/pattern&gt; <br>
+&lt;template&gt;Thanks for telling me your gender.
+&lt;think&gt;&lt;set_gender&gt;female&lt;/set_gender&gt;&lt;/think&gt;
+<br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>The &lt;set_gender&gt;female&lt;/set_gender&gt; tag normally
+returns a string "female". But the &lt;think&gt; tag
+hides the text output of
+&lt;set_gender&gt;female&lt;/set_gender&gt; from the reply, which
+contains only the text: </p>
+
+<p>Thanks for telling me your gender. <br>
+</p>
+
+<hr>
+
+<p><a name="topic"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;topic name="X"&gt; &lt;/topic&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0 <br>
+<font size="2"><b>Must be within:</b></font> &lt;aiml&gt; <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> &lt;category&gt; <br>
+</p>
+
+<p><b>Description:</b> <br>
+1. &lt;topic&gt; allows ALICE to prefer responses that deal with
+the topic currently being discussed. This creates topical
+conversation, yet still has the ability to move from one subject
+to another. <br>
+2. &lt;topic&gt; allows ALICE to have duplicate patterns in
+different contexts (topics) allowing ALICE to have different
+responses to the same input patterns depending on the topic. For
+example, "overriding" the " * " pattern for
+different topics. (I'll give an example with this.) <br>
+3. As always, you can still use the &lt;get_topic/&gt; tag to
+refer to the topic in your output statements (templates). <br>
+4. As always, you can add topics on top of all your existing AIML
+to keep your bot's current personality. <br>
+&nbsp; </p>
+
+<h4>Where does the &lt;topic&gt; tag appear?</h4>
+
+<p>Topic tags are placed around one or more categories. (Usually
+many.) The categories (with each respective "pattern",
+"that", and "template") within a set of
+&lt;topic&gt; &lt;/topic&gt; tags would be associated with the
+defined topic. The name of the topic would be given by a
+"name" property in the beginning topic tag. Here would
+be the full AIML format with topic: </p>
+
+<p>&lt;aiml&gt; </p>
+
+<p>&lt;topic name="THE TOPIC"&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt; phrase &lt;/pattern&gt; <br>
+&lt;that&gt; phrase &lt;/that&gt; <br>
+&lt;template&gt; phrase &lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>&lt;/topic&gt; </p>
+
+<p>&lt;/aiml&gt; </p>
+
+<h4>How do I use the &lt;topic&gt; tag?</h4>
+
+<p>The concept is that the botmaster uses the &lt;set_topic&gt;
+tags to set the current topic being discussed. Once the topic is
+set, when the client types in a statement for ALICE to find a
+response for, the categories defined within the &lt;topic&gt;
+tags matching the current topic will be searched first-- before
+any of the non-topic categories, or the default categories. If
+there is not a matching category defined in the current topic,
+then any categories that are not defined in topic tags are
+searched. As mentioned before, you can create categories with
+identical &lt;pattern&gt; phrases in different topics, each with
+different responses that cater to the current topic. </p>
+
+<p>An proof of concept example: <br>
+A very useful topic entry might be the default "*"
+input for specific topics. If ALICE were set up on a pet store
+web site and a person was talking to ALICE about dogs, a useful
+entry might be: </p>
+
+<p>&lt;topic name="DOGS"&gt; </p>
+
+<p>&lt;category&gt; <br>
+&lt;pattern&gt; * &lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+&lt;random&gt; <br>
+&lt;li&gt; Dogs are one of the most popular pets to
+have.&lt;/li&gt; <br>
+&lt;li&gt; Have you ever met a Chihuahua you didn't
+like?&lt;/li&gt; <br>
+&lt;li&gt; What else do you know about dogs? &lt;/li&gt; <br>
+&lt;li&gt; Do you have any questions about dogs? &lt;/li&gt; <br>
+&lt;/random&gt; <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>//more dog categories.... </p>
+
+<p>&lt;/topic&gt; </p>
+
+<p>Normally there would be many entries in a topic, but in this
+example, we simply entered the default "*". In this
+case, if the person said something that ALICE didn't have a
+specific programmed response for, she could still respond
+intelligently within the current topic. (Note: this is all
+assuming there are existing categories that might set the current
+topic to "DOGS") </p>
+
+<p>Also, though topics can only have one name, they can contain
+the wild characters "*" or "_" just like a
+pattern. Also, while sticking with the pattern criteria, only one
+wildcard character is allowed per name. This would allow topics
+like "CARING FOR DOGS" or "GROOMING DOGS" to
+also fall into the "_ DOGS" topic. As with patterns,
+the more specific topics would gain preference over the
+wildcarded topic. This means that if the topic is currently
+"GROOMING DOGS" and yet there is not a programmed
+response for the input in that category, then "_ DOGS"
+would be checked, and then next the default categories. <br>
+</p>
+
+<hr size="1">
+
+<p><a name="topicstar"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;topicstar/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 0.9 <font color="#FF0000"><strong>(This is a deprecated TAG)</strong></font>
+<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;topicstar/&gt; tag returns the input text fragment
+matching the pattern '*' contained in a
+&lt;topic&gt;...&lt;/topic&gt; tag set. <br>
+See <a href="#topicstar%201.0">&lt;topicstar
+index="n"/&gt;</a> tag.</p>
+
+<hr>
+
+<p><a name="topicstar 1.0"></a> <br>
+<span style="background: yellow"></span></p>
+
+<h4>&lt;topicstar index="n"/&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> undefined <br>
+<font size="2"><b>Can be within:</b></font> &lt;template&gt; <br>
+<font size="2"><b>Can contain:</b></font> nothing <br>
+<font size="2"><b>Must Contain:</b></font> nothing <br>
+</p>
+
+<p><b>Description:</b> <br>
+The &lt;topicstar index="n"/&gt; tag returns the input
+text fragment matching the pattern "n" '*' contained in
+a &lt;topic&gt;...&lt;/topic&gt; tag set. <br>
+The index="n" is optional, and if left off, the index
+value of "1" is assumed. The tag &lt;topicstar/&gt; is
+equivilant to &lt;topicstar index="1"/&gt;.</p>
+
+<hr>
+
+<p><a name="uppercase"><span style="background: yellow"></span></a> </p>
+
+<h4><font color="#330033">&lt;</font>uppercase&gt;<em>text</em>&lt;/uppercase&gt;</h4>
+
+<p><font size="2"><b>Supported in versions:</b></font> AIML 1.0<br>
+<font size="2"><b>Must be within:</b></font> <font color="#FF6666">&lt;template&gt;</font> <br>
+<font size="2"><b>Can be within:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Can contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+<font size="2"><b>Must Contain:</b></font> <font color="#FF6666">UNKNOWN</font>
+<br>
+</p>
+
+<p><b>Description:</b> <br>
+This tag allows for word formating within the tag boundries.<font color="#008000" size="2" face="Fixedsys"> </font><font color="#000000" size="2" face="Fixedsys"><strong>all upper case</strong></font></p>
+
+<p><b>Example:</b> <br>
+&lt;category&gt; <br>
+&lt;pattern&gt;DO UPPERCASE&lt;/pattern&gt; <br>
+&lt;template&gt; <br>
+This is an &lt;uppercase&gt;uppercase&lt;/uppercase&gt; test. <br>
+&lt;/template&gt; <br>
+&lt;/category&gt; </p>
+
+<p>This category will give the following output: This is an
+UPPERCASE test.</p>
+
+<hr>
+
+<p><a name="normalized text"></a><font size="2"><b>NORMALIZED
+TEXT</b></font> <br>
+_, *, and &lt;name/&gt; (at present) </p>
+
+<p><a name="psae"></a><font size="2"><b>PSAE</b></font> <br>
+AIML broadly breaks down into two parts: "Pattern Side AIML
+expressions" that can appear in the &lt;pattern&gt;,
+&lt;that&gt;, and &lt;topic&gt; and "Template-Side AIML <br>
+expressions" that appear inside the &lt;template&gt;.&nbsp;
+Pattern-side AIML expressions (PSAE): </p>
+
+<p><a name="tsae"></a><font size="2"><b>TSAE</b></font> <br>
+TSAE expressions are comprised of ordinary text, optionally
+marked up with all the other tags.&nbsp; Generally speaking, it
+doesn't make sense to use PSAE's in the <br>
+template or TSAE's in the pattern, topic or
+&lt;that&gt;...&lt;/that&gt;.&nbsp; The sole exception at this
+point is &lt;name/&gt;. <br>
+&nbsp; </p>
+
+
+</body></html>
