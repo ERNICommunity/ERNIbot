@@ -85,6 +85,5 @@ public class AIMLNode {
 	public void addMatchRank(int matchRank) {
 		this.matchRank = this.matchRank + matchRank;
 	}
-
-
+	
 }
