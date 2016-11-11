@@ -3,7 +3,7 @@ package de.erni.trongbot.bot.entity;
 public class Message {
 
 	public static enum MessageType {
-		   OTHER(1), SELF(2);
+		   BOT(1), USER(2);
 		  
 		   int id;
 		   MessageType(int p) {
@@ -13,7 +13,7 @@ public class Message {
 		      return id;
 		   } 
 		}
-	
+
 	public String text;
 	public MessageType type;
 	

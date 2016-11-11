@@ -1,5 +1,9 @@
 package de.erni.trongbot.bot;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,12 +13,12 @@ import java.util.regex.Pattern;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
-import android.content.Context;
-import android.util.Log;
+import ch.erni.ernibot.bots.Bot;
 import de.erni.trongbot.bot.entity.AIMLNode;
+import de.erni.trongbot.bot.entity.Memory;
+import de.erni.trongbot.bot.entity.Message;
 import de.erni.trongbot.bot.helper.ChatUtils;
 import de.erni.trongbot.bot.xml.AIMLHandler;
-import de.erni.trongbot.bot.entity.Memory;
 
 public class AIMLInterpreter {
 	
@@ -62,7 +66,11 @@ public class AIMLInterpreter {
 		    err.printStackTrace ();
 		}		
 	}
-	
+
+	public void sendMessageToBot(Message userMessage, Message botMessage){
+		botMessage.text = match(userMessage.text);
+	}
+
 	/**
 	 * Core method to find the fitting pattern
 	 * 
@@ -113,9 +121,10 @@ public class AIMLInterpreter {
 		if (sraiMatcher.find()){
 			answer = answer.replace(sraiMatcher.group(0), match(sraiMatcher.group(1)));	
 		}
-		
+
 		return answer;
 	}
+
 	
 	private AIMLNode findBestMatchByRank(List<AIMLNode> matches, String pattern){
 		AIMLNode bestMatch = new AIMLNode();
@@ -209,5 +218,5 @@ public class AIMLInterpreter {
 		
 		return ChatUtils.prepareAnswer(answer);
 	}
-	
+
 }

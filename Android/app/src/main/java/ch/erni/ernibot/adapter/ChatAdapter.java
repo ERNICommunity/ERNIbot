@@ -31,7 +31,7 @@ public class ChatAdapter extends ArrayAdapter<Message> {
     Message message = values.get(position);
     
     View rowView;
-    if (Message.MessageType.OTHER.equals(message.type)) {
+    if (Message.MessageType.BOT.equals(message.type)) {
     	rowView = inflater.inflate(R.layout.row_other, parent, false);
     } else {
     	rowView = inflater.inflate(R.layout.row_self, parent, false);

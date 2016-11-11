@@ -1,6 +1,7 @@
 package ch.erni.ernibot;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import ch.erni.ernibot.adapter.ChatAdapter;
-import de.erni.trongbot.bot.AIMLInterpreter;
+import ch.erni.ernibot.bots.Bot;
 import de.erni.trongbot.bot.entity.Memory;
 import de.erni.trongbot.bot.entity.Message;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity
     private Button sendButton;
     private EditText input;
     private Memory memory;
-    private AIMLInterpreter interpreter;
+    private Bot bot;
     private ChatAdapter adapter;
     private ListView chatList;
     private TextToSpeech tts;
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         memory = Memory.getInstance();
-        interpreter =  AIMLInterpreter.getInstance(this);
+        bot = new Bot(this);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -134,23 +135,26 @@ public class MainActivity extends AppCompatActivity
     private void addMessage(String text){
         Message message = new Message();
         message.text = text;
-        message.type = Message.MessageType.SELF;
+        message.type = Message.MessageType.USER;
         memory.addMessage(message);
 
         input.setText("");
 
-        Message answer = new Message();
-        answer.text = interpreter.match(text);
-        answer.type = Message.MessageType.OTHER;
-        memory.addMessage(answer);
         input.onEditorAction(EditorInfo.IME_ACTION_DONE);
 
         adapter.notifyDataSetChanged();
         chatList.setSelection(adapter.getCount() - 1);
 
-        HashMap<String, String> map = new HashMap<>();
-        map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "MessageId");
-        tts.speak(answer.text, TextToSpeech.QUEUE_FLUSH, map);
+        Message userMessage = new Message();
+        userMessage.type = Message.MessageType.USER;
+        userMessage.text = text;
+
+        Message botMessage = new Message();
+        botMessage.type = Message.MessageType.BOT;
+
+        SendMessageTask sendMessageTask = new SendMessageTask();
+        sendMessageTask.execute(userMessage, botMessage);
+
     }
 
     @Override
@@ -179,6 +183,9 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent settings = new Intent(this, SettingsActivity.class);
+            startActivity(settings);
+
             return true;
         }
 
@@ -196,7 +203,6 @@ public class MainActivity extends AppCompatActivity
             Log.d(TAG, "####################" + matches.get(0));
             addMessage(matches.get(0));
 
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -207,18 +213,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_chat) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -230,5 +226,34 @@ public class MainActivity extends AppCompatActivity
     public void onInit(int status) {
         // TODO Auto-generated method stub
 
+    }
+
+    private class SendMessageTask extends AsyncTask<Message, Integer, Long> {
+
+        private Message botMessage;
+        private Message userMessage;
+
+        protected Long doInBackground(Message... messages) {
+            userMessage = messages[0];
+            botMessage = messages[1];
+            bot.sendMessageToBot(userMessage, botMessage);
+            return null;
+        }
+
+        protected void onProgressUpdate(Integer... progress) {
+            sendButton.setEnabled(false);
+        }
+
+        protected void onPostExecute(Long result) {
+
+            memory.addMessage(botMessage);
+            HashMap<String, String> map = new HashMap<>();
+            adapter.notifyDataSetChanged();
+            chatList.setSelection(adapter.getCount() - 1);
+
+            map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "MessageId");
+            tts.speak(botMessage.text, TextToSpeech.QUEUE_FLUSH, map);
+            sendButton.setEnabled(true);
+        }
     }
 }
