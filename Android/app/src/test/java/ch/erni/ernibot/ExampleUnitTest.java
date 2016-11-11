@@ -1,4 +1,4 @@
-package ch.erni.ernibot.ernibot.ernibot;
+package ch.erni.ernibot;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package ch.erni.ernibot.ernibot.ernibot;
+package ch.erni.ernibot;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

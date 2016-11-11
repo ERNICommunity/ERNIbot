@@ -1,8 +1,10 @@
 package ch.erni.ernibot;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.support.design.widget.NavigationView;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity
     private ChatAdapter adapter;
     private ListView chatList;
     private TextToSpeech tts;
+    private SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,17 +56,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        prefs = PreferenceManager.getDefaultSharedPreferences(this);
+
         memory = Memory.getInstance();
         bot = new Bot(this);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
         tts = new TextToSpeech(this, this);
 
@@ -251,9 +247,13 @@ public class MainActivity extends AppCompatActivity
             adapter.notifyDataSetChanged();
             chatList.setSelection(adapter.getCount() - 1);
 
-            map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "MessageId");
-            tts.speak(botMessage.text, TextToSpeech.QUEUE_FLUSH, map);
-            sendButton.setEnabled(true);
+            boolean isTTSEnabled = prefs.getBoolean("enable_tts", true);
+
+            if (isTTSEnabled){
+                map.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "MessageId");
+                tts.speak(botMessage.text, TextToSpeech.QUEUE_FLUSH, map);
+                sendButton.setEnabled(true);
+            }
         }
     }
 }
