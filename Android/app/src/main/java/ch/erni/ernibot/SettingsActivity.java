@@ -191,7 +191,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             bindPreferenceSummaryToValue(findPreference("pandorabot_appid"));
             bindPreferenceSummaryToValue(findPreference("pandorabot_userkey"));
             bindPreferenceSummaryToValue(findPreference("pandorabot_hostname"));
-//            bindPreferenceSummaryToValue(findPreference("enable_pandorabots"));
+            bindPreferenceSummaryToValue(findPreference("pandorabot_botname"));
         }
 
         @Override

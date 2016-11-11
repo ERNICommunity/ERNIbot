@@ -9,11 +9,11 @@
     <string name="settings_select_bot_pandora">Use Pandorabot</string>
     <string name="pref_header_pandorabot">Pandorabot Settings</string>
     <string name="pref_title_pandorabot_userkey">User Key</string>
-    <string name="pref_default_pandorabot_userkey">acc7dd336d2efdde3242f40e4c6affd7</string>
+    <string name="pref_default_pandorabot_userkey">cfb485db5f62981ea63aa4f9c5bfcea8</string>
     <string name="pref_title_pandorabot_appid">App Id</string>
-    <string name="pref_default_pandorabot_appid">1409613240932</string>
+    <string name="pref_default_pandorabot_appid">1409613245650</string>
     <string name="pref_title_pandorabot_botname">Botname</string>
-    <string name="pref_default_pandorabot_botname">dohren</string>
+    <string name="pref_default_pandorabot_botname">german</string>
     <string name="pref_title_pandorabot_hostname">Hostname</string>
     <string name="pref_default_pandorabot_hostname">aiaas.pandorabots.com</string>
     <string name="title_activity_settings">Settings</string>

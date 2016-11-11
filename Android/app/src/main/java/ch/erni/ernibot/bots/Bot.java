@@ -19,7 +19,7 @@ public class Bot {
 
     public Bot(Context context){
         this.context = context;
-        pandorabotdAPI = new PandorabotsAPI();
+        pandorabotdAPI = new PandorabotsAPI(context);
         trongbot = AIMLInterpreter.getInstance(context);
     }
 
