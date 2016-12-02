@@ -15,7 +15,6 @@ public class Crawler {
 
 	
 	private static final Map<String, String> HEADER_PATTERNS = new HashMap<String, String>();
-	private Map<String, String> categories = new HashMap<String, String>();
 	private String eol = System.getProperty("line.separator");
 	private StringBuilder aiml = new StringBuilder();
 	private String username;
@@ -105,20 +104,15 @@ public class Crawler {
 
 			String pattern = HEADER_PATTERNS.get(header);
 			if (pattern != null && !"".equals(template.toString())) {
-				categories.put(pattern.replace("@serviceName", serviceName.toUpperCase()), template.toString());
+				aiml.append("<category>").append(eol);
+				aiml.append("<pattern>").append(pattern.replace("@serviceName", serviceName.toUpperCase())).append("</pattern>").append(eol);
+				aiml.append("<template>").append(StringEscapeUtils.escapeXml(template.toString())).append("</template>").append(eol);
+				aiml.append("</category>").append(eol);
 			}
 
 			System.out.println("\n");
 		}
 		
-		
-		for (Map.Entry<String, String> entry : categories.entrySet()) {
-			aiml.append("<category>").append(eol);
-			aiml.append("<pattern>").append(entry.getKey()).append("</pattern>").append(eol);
-			aiml.append("<template>").append(StringEscapeUtils.escapeXml(entry.getValue())).append("</template>").append(eol);
-			aiml.append("</category>").append(eol);
-			
-		}
 		
 	}
     
