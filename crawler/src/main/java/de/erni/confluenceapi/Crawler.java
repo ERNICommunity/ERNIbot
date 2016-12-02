@@ -14,23 +14,23 @@ import org.jsoup.select.Elements;
 public class Crawler {
 
 	
-	private  Map<String, String> headerPatterns = new HashMap<String, String>();
-	private  Map<String, String> categories = new HashMap<String, String>();
-	private  String eol = System.getProperty("line.separator");
-	private  StringBuilder aiml = new StringBuilder();
+	private static final Map<String, String> HEADER_PATTERNS = new HashMap<String, String>();
+	private Map<String, String> categories = new HashMap<String, String>();
+	private String eol = System.getProperty("line.separator");
+	private StringBuilder aiml = new StringBuilder();
 	private String username;
 	private String password;
 	
 	
     public Crawler(){
-    	headerPatterns.put("Benefit", "WHAT IS THE BENEFIT OF @serviceName");
-		headerPatterns.put("Problems &amp; goals", "WHAT IS @serviceName");
-		headerPatterns.put("Input", "WHAT DO YOU NEED FOR @serviceName");
-		headerPatterns.put("Output", "WHAT DO YOU GET FROM @serviceName");
-		headerPatterns.put("Roles", "WHAT ARE THE ROLES OF @serviceName");
-		headerPatterns.put("Workflow / Process", "WHAT DO YOU KNOW ABOUT @serviceName");
-		headerPatterns.put("Tools &amp; templates", "WHICH TOOLS DO YOU NEEDE FOR @serviceName");
-		headerPatterns.put("Lessons learnt", "WHAT HAVE YOU LEARNED FROM @serviceName");
+    	HEADER_PATTERNS.put("Benefit", "WHAT IS THE BENEFIT OF @serviceName");
+		HEADER_PATTERNS.put("Problems &amp; goals", "WHAT IS @serviceName");
+		HEADER_PATTERNS.put("Input", "WHAT DO YOU NEED FOR @serviceName");
+		HEADER_PATTERNS.put("Output", "WHAT DO YOU GET FROM @serviceName");
+		HEADER_PATTERNS.put("Roles", "WHAT ARE THE ROLES OF @serviceName");
+		HEADER_PATTERNS.put("Workflow / Process", "WHAT DO YOU KNOW ABOUT @serviceName");
+		HEADER_PATTERNS.put("Tools &amp; templates", "WHICH TOOLS DO YOU NEEDE FOR @serviceName");
+		HEADER_PATTERNS.put("Lessons learnt", "WHAT HAVE YOU LEARNED FROM @serviceName");
     }
 	
     
@@ -103,7 +103,7 @@ public class Crawler {
 				currentElement = currentElement.nextElementSibling();
 			}
 
-			String newTemplate = headerPatterns.get(header);
+			String newTemplate = HEADER_PATTERNS.get(header);
 			if (newTemplate != null && !"".equals(template.toString())) {
 				categories.put(newTemplate.replace("@serviceName", serviceName.toUpperCase()), template.toString());
 			}
