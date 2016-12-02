@@ -93,14 +93,14 @@ public class Crawler {
 		Elements headers = doc.getElementsByTag("h1");
 
 		for (int i = 0; i < headers.size() - 1; i++) {
-			Element next = headers.get(i).nextElementSibling();
+			Element currentElement = headers.get(i).nextElementSibling();
 			String header = headers.get(i).text();
 			System.out.println("########" + header);
 			StringBuilder template = new StringBuilder();
-			while (next!=null && !next.tagName().equals("h1")) {
-				System.out.print(next.text());
-				template.append(next.text());
-				next = next.nextElementSibling();
+			while (currentElement!=null && !currentElement.tagName().equals("h1")) {
+				System.out.print(currentElement.text());
+				template.append(currentElement.text());
+				currentElement = currentElement.nextElementSibling();
 			}
 
 			String newTemplate = headerPatterns.get(header);
