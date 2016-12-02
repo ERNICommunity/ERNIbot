@@ -68,7 +68,7 @@ public class LoginView {
 		loginButton.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Hello");
+
 				crawler.setUsername(userNameInput.getText());
 				crawler.setPassword(passwordInput.getText());
 				try {

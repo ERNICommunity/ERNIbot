@@ -95,7 +95,7 @@ public class Crawler {
 		for (int i = 0; i < headers.size() - 1; i++) {
 			Element currentElement = headers.get(i).nextElementSibling();
 			String header = headers.get(i).text();
-			System.out.println("########" + header);
+
 			StringBuilder template = new StringBuilder();
 			while (currentElement!=null && !currentElement.tagName().equals("h1")) {
 				System.out.print(currentElement.text());
@@ -103,9 +103,9 @@ public class Crawler {
 				currentElement = currentElement.nextElementSibling();
 			}
 
-			String newTemplate = HEADER_PATTERNS.get(header);
-			if (newTemplate != null && !"".equals(template.toString())) {
-				categories.put(newTemplate.replace("@serviceName", serviceName.toUpperCase()), template.toString());
+			String pattern = HEADER_PATTERNS.get(header);
+			if (pattern != null && !"".equals(template.toString())) {
+				categories.put(pattern.replace("@serviceName", serviceName.toUpperCase()), template.toString());
 			}
 
 			System.out.println("\n");
