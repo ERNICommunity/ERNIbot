@@ -31,20 +31,9 @@ public class Crawler {
 		HEADER_PATTERNS.put("Tools &amp; templates", "WHICH TOOLS DO YOU NEEDE FOR @serviceName");
 		HEADER_PATTERNS.put("Lessons learnt", "WHAT HAVE YOU LEARNED FROM @serviceName");
     }
-	
-    
-    public String getUsername() {
-		return username;
-	}
-
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-
-	public String getPassword() {
-		return password;
 	}
 
 
@@ -73,8 +62,8 @@ public class Crawler {
        		page = client.getPage(item.getLong("id"), HTTPClient.REST_READ_CONTENT, username, password);
        		String html = page.getJSONObject("body").getJSONObject("storage").get("value").toString();
        		String title = item.get("title").toString();
-       		System.out.println(html);
-       		createAiml(Jsoup.parse(html), title);
+       	
+       		createCategory(Jsoup.parse(html), title);
 
        	}
        	
@@ -87,7 +76,7 @@ public class Crawler {
     
     
     
-    public  void createAiml(Document doc, String serviceName) {
+    public  void createCategory(Document doc, String serviceName) {
 
 		Elements headers = doc.getElementsByTag("h1");
 
